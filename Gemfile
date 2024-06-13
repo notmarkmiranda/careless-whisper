@@ -19,7 +19,7 @@ group :development, :test do
   gem "pry"
   gem "rspec-rails", "~> 6.1.0"
   gem "standard"
-  gem 'standard-rails'
+  gem "standard-rails"
 end
 
 group :development do
