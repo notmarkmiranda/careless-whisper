@@ -10,16 +10,17 @@ gem "jsbundling-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
 gem "jbuilder"
-gem "tzinfo-data", platforms: %i[ windows jruby ]
+gem "tzinfo-data", platforms: %i[windows jruby]
 gem "bootsnap", require: false
 
 group :development, :test do
   gem "factory_bot_rails"
   gem "pry"
   gem "rspec-rails", "~> 6.1.0"
+  gem "standard"
+  gem "standard-rails"
 end
 
 group :development do
   gem "web-console"
 end
-
