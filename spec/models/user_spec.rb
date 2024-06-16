@@ -1,10 +1,10 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe User, type: :model do
   describe "#set_phone_number validation" do
     it "sets the phone number to E.164 format" do
       user = User.build(phone_number: "+1 (303) 847.6953")
-      user.save
+      user.save!
 
       expect(user.phone_number).to eq("+13038476953")
     end
