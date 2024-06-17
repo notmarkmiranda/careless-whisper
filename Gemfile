@@ -12,9 +12,11 @@ gem "jsbundling-rails"
 gem "pg", "~> 1.1"
 gem "phonelib"
 gem "puma", ">= 5.0"
+gem "pundit"
 gem "sprockets-rails"
 gem "stimulus-rails"
 gem "turbo-rails"
+gem "twilio-ruby"
 gem "tzinfo-data", platforms: %i[windows jruby]
 
 group :development, :test do
