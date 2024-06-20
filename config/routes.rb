@@ -7,6 +7,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "home#index"
+  post "/test-vonage-api", to: "home#test_vonage_api", as: :test_vonage_api
 
   get "/dashboard", to: "dashboard#show", as: :dashboard
+
+  resources :users, only: [:new, :create]
+  get "/users/token/:user_id", to: "users#token", as: :user_token
+  post "/users/verify", to: "users#verify", as: :verify_user
 end
