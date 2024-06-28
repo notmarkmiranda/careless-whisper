@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get "/dashboard", to: "dashboard#show", as: :dashboard
 
   resources :users, only: [:new, :create]
-  get "/users/token/:user_id", to: "users#token", as: :user_token
+  get "/users/token/:token", to: "users#token", as: :user_token
   post "/users/verify", to: "users#verify", as: :verify_user
+  delete "/sign-out", to: "sessions#destroy", as: :sign_out
 end

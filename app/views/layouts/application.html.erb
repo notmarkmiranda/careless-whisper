@@ -17,10 +17,13 @@
       <ul>
         <li><strong>Careless Whisper 🎷</strong></li>
       </ul>
-      <ul>
+      <ul class="nav">
         <li><a href="#">About</a></li>
         <li><a href="#">Services</a></li>
         <li><a href="#">Products</a></li>
+        <% if current_user %>
+          <li><%= button_to "Sign out", sign_out_path, class: "outline link", method: :delete %></li>
+        <% end %>
       </ul>
     </nav>
     <main>

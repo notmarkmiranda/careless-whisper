@@ -1,9 +1,12 @@
 <div class="grid">
   <article>
     <h2>Verify your phone number</h2>
-    <fieldset role="group">
-      <%= text_field_tag :otp, nil, placeholder: "069420" %>
-      <%= submit_tag "verify" %>
-    </fieldset>
+    <%= form_with url: verify_user_path do |f| %>
+      <fieldset role="group">
+        <%= hidden_field_tag :user_token, @user.otp_secret_key %>
+        <%= text_field_tag :otp, nil, placeholder: "069420" %>
+        <%= f.submit "verify" %>
+      </fieldset>
+    <% end %>
   </article>
 </div>

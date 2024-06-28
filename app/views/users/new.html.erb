@@ -1,6 +1,6 @@
 <article>
   <h2>Sign up or sign in with your phone number</h2>
-  <%= form_for @user do |f| %>
+  <%= form_with model: User.new do |f| %>
     <fieldset role="group">
       <%= f.text_field :phone_number, placeholder: "3038675309" %>
       <%= f.submit "sign up or in" %>

@@ -11,6 +11,10 @@ class ApplicationController < ActionController::Base
     redirect_to new_user_path unless current_user.present?
   end
 
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
+  end
+
   private
 
   def current_user
