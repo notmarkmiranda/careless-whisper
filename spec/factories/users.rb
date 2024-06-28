@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :user do
-    sequence(:phone_number) { |n| "30384#{n.to_s.rjust(5, '0')}" }
+    sequence(:phone_number) { |n| "30384#{n.to_s.rjust(5, "0")}" }
 
     factory :full_user do
       first_name { Faker::Name.first_name }

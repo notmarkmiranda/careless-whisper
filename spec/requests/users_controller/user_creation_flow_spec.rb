@@ -4,7 +4,7 @@ RSpec.describe "User Creation Flow", type: :request do
   describe "GET#new" do
     describe "as a visitor" do
       it "responds successfully" do
-        get '/users/new'
+        get "/users/new"
 
         expect(response).to be_successful
         expect(response).to have_http_status "200"
@@ -15,7 +15,7 @@ RSpec.describe "User Creation Flow", type: :request do
       before { sign_in create(:user) }
 
       it "redirects to the dashboard" do
-        get '/users/new'
+        get "/users/new"
 
         expect(response).to redirect_to dashboard_path
       end
@@ -28,7 +28,7 @@ RSpec.describe "User Creation Flow", type: :request do
         allow(SmsService).to receive_message_chain(:new, :send_otp_code)
 
         expect do
-          post "/users", params: { user: attributes_for(:user) }
+          post "/users", params: {user: attributes_for(:user)}
         end.to change(User, :count).by(1)
       end
     end
@@ -39,7 +39,7 @@ RSpec.describe "User Creation Flow", type: :request do
       it "does not create a user" do
         expect do
           expect do
-            post "/users", params: { user: { phone_number: user.phone_number } }
+            post "/users", params: {user: {phone_number: user.phone_number}}
           end.not_to change(User, :count)
         end
       end
@@ -73,7 +73,7 @@ RSpec.describe "User Creation Flow", type: :request do
       let!(:code) { user.otp_code }
 
       it "redirects to the dashboard" do
-        post "/users/verify", params: { otp: code, user_token: user.otp_secret_key }
+        post "/users/verify", params: {otp: code, user_token: user.otp_secret_key}
 
         expect(response).to redirect_to dashboard_path
       end
@@ -81,7 +81,7 @@ RSpec.describe "User Creation Flow", type: :request do
 
     describe "when the code is incorrect" do
       it "does not redirect to the dashboard" do
-        post "/users/verify", params: { otp: "0000", user_token: user.otp_secret_key }
+        post "/users/verify", params: {otp: "0000", user_token: user.otp_secret_key}
 
         expect(response).not_to redirect_to dashboard_path
       end

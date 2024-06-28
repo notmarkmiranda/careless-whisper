@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.find_or_create_by(phone_number: user_params[:phone_number])
+    @user = User.find_or_create_by!(phone_number: user_params[:phone_number])
     if @user.update(user_params)
       sms_service = SmsService.new
       sms_service.send_otp_code(@user)

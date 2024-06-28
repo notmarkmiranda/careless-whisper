@@ -6,7 +6,7 @@ class HomeController < ApplicationController
     client.sms.send(
       from: "15862801778",
       to: "13038476953",
-      text: 'Careless whisper 🎷'
+      text: "Careless whisper 🎷"
     )
 
     redirect_to root_path

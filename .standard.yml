@@ -1,2 +1,7 @@
 plugins:
   - standard-rails
+ignore:
+  - 'app/services/sms_service.rb':
+    - Rails/EnvironmentVariableAccess
+  - 'app/controllers/home_controller.rb':
+    - Rails/EnvironmentVariableAccess

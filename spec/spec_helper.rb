@@ -91,7 +91,7 @@ RSpec.configure do |config|
   #   Kernel.srand config.seed
 end
 
-def sign_in(user=nil)
+def sign_in(user = nil)
   user ||= create(:user)
   allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 end

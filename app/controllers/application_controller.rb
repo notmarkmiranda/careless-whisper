@@ -8,11 +8,11 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_user!
-    redirect_to new_user_path unless current_user.present?
+    redirect_to new_user_path if current_user.blank?
   end
 
   def not_found
-    raise ActionController::RoutingError.new('Not Found')
+    raise ActionController::RoutingError.new("Not Found")
   end
 
   private
