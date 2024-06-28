@@ -8,6 +8,6 @@ class User < ApplicationRecord
 
   def set_phone_number
     phonelib = Phonelib.parse(phone_number)
-    self.phone_number = phonelib.e164 if phonelib.valid?
+    self.phone_number = phonelib.sanitized if phonelib.valid?
   end
 end

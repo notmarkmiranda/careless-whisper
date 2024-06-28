@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
       user = User.build(phone_number: "+1 (303) 847.6953")
       user.save!
 
-      expect(user.phone_number).to eq("+13038476953")
+      expect(user.phone_number).to eq("13038476953")
     end
 
     it "does not set the phone number if it is invalid" do

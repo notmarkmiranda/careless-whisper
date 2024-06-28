@@ -16,11 +16,12 @@ gem "pundit"
 gem "sprockets-rails"
 gem "stimulus-rails"
 gem "turbo-rails"
-gem "twilio-ruby"
 gem "tzinfo-data", platforms: %i[windows jruby]
+gem "vonage"
 
 group :development, :test do
   gem "brakeman"
+  gem "dotenv"
   gem "factory_bot_rails"
   gem "pry"
   gem "rspec-rails", "~> 6.1.0"
